@@ -1,0 +1,38 @@
+<!-- Taking the input from the user in the input text field, input is stored in a variable 'term' -->
+<!-- get method is used to take input to the controller -->
+<div class="row">
+  <div class="col s12 m12 l12">
+    <h5>Please Enter the Search Term </h5><%= form_tag("/", method: "get", ) do %>
+       <%= text_field_tag :term %>
+       <button class="btn waves-effect waves-light" type="submit" name="action"><%= submit_tag 'Search' %>
+        <i class="material-icons right"></i>
+      </button>
+
+    <% end %>
+
+  </div>
+</div>
+
+<!-- traversing through the hashTagsArray an printing its name and value -->
+<div class="row">
+  <div class="col s6 m6 l6" span class="flow-text">
+    <div class="z-depth-4">
+      <ul class="collection with-header">
+        <li class="collection-header red-text"><h4># HashTags</h4></li>
+        <% @hashTagsArray.each do |key,value| %>
+        <li class="collection-item"><span class="new badge red" data-badge-caption=""><%=value%></span>         #<%=key%> </li>
+      <%end%>
+    </div>
+  </div>
+
+<!-- traversing through the userMentionArray an printing its name and value -->
+  <div class="col s6 m6 l6" span class="flow-text">
+    <div class="z-depth-4">
+      <ul class="collection with-header">
+        <li class="collection-header blue-text"><h4>@ UserMentions</h4></li>
+        <% @userMentionArray.each do |key,value| %>
+        <li class="collection-item "><span class="new badge blue" data-badge-caption=""><%=value%></span>         @<%=key%><br></li>
+    <%end%>
+    </div>
+  </div>
+<div>
